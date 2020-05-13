@@ -1,0 +1,11 @@
+# Calculus of Variations
+
+## Functions as Vectors
+
+Vectors in \\( \mathbb{R}^d )\\ are typically experssed as a list d real numbers \\( (x_1, ... , x_d) )\\.
+
+## Applications
+
+
+References
+[1] [rschwieb (https://math.stackexchange.com/users/29335/rschwieb), Intuitive and convincing argument that functions are vectors, URL (version: 2017-04-13): https://math.stackexchange.com/q/902962](https://math.stackexchange.com/a/902962)
