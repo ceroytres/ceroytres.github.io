@@ -1,3 +1,3 @@
 # Notes
 
-My note about learning stuff.
+My notes about learning stuff.
