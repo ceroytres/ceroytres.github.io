@@ -1,6 +1,5 @@
 # About
 
-![](images/me.jpg = 250x250)
+<img src="images/me.jpg" style="width:256px;height:256px;">
 
-Hi my name is Diego.
-
+<p style="text-align: center;">Hi! My name is Diego</p>
