@@ -15,6 +15,10 @@ email: dmarez8ece@gmail.com
 twitter_username: ceroytres
 linkedin_username: diego-marez-2a0b4a105
 
+disqus:
+  shortname: ceroytres-github-io
+  url: https://ceroytres.github.io
+
 
 # Set this to true to get LaTeX math equation support
 use_math: true
