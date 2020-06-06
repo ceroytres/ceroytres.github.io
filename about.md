@@ -4,4 +4,4 @@
 
 <p style="text-align: center;"><a href="https://twitter.com/ceroytres?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @ceroytres</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
-<p style="text-align: center;">Hi! My name is Diego</p>
+<p style="text-align: center;">Hi! My name is Diego.</p>
