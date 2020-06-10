@@ -89,10 +89,17 @@ $$ k_3 = \Delta t f(t_i + \frac{\Delta t}{2}, h_{t_i}+ \frac{k_2}{2}) $$
 $$ k_4 = \Delta t f(t_i+\Delta t, h_{t_i} + k_3) $$
 
 
-## ResNets
+## ResNets and ODEs
 
 ResNet are a particular class of neural network models that enable the training of models with hundreds of layers. The underlying principle of ResNet is the idea of residual learning. Suppose $\mathcal{H}(x)$ is a desired mapping at specific layer, and in residual learning, we let the previous stacked non-linear layers a different mapping $\mathcal{F}(x) = \mathcal{H}(x) - x$. The original problem of learning of $\mathcal{H}(x)$ is recast as learning the following $\mathcal{F}(x) + x$. $\mathcal\{F\}(x)$ called the residual mapping. The residual mapping contains the trainable parameters for its layer so the residual mapping $\mathcal\{F\}\(x;\theta_\ell\)$, where $\theta_\ell$ are the trainable parameters at layer $\ell$. 
-The underlying assumption of residual learning is that it is simpler to learn the residual mapping $\mathcal{F}(x)$ relative to the target mapping $\mathcal{H}(x)$. The residual mapping echoes Euler's method. If we set $h_\ell = x$, $F(h_\ell,\theta_\ell) = \mathcal{F}(x, \theta)$, and $h_{\ell+1} = \mathcal{H}(x, \theta)$:
+The underlying assumption of residual learning is that it is simpler to learn the residual mapping $\mathcal{F}(x)$ relative to the target mapping $\mathcal{H}(x)$.
+
+<figure>
+<img src="{{site.baseurl}}/images/post_im/neural_ode/resnet.png">
+  <figcaption>ResNet Basic Building Block Diagram from <a href="#ref_1">[1]</a></figcaption>
+</figure>
+
+The residual mapping echoes Euler's method. If we set $h_\ell = x$, $F(h_\ell,\theta_\ell) = \mathcal{F}(x, \theta)$, and $h_{\ell+1} = \mathcal{H}(x, \theta)$:
 
 $$h_{\ell+1} = h_\ell + F(h_\ell, \theta_\ell)$$ 
 
