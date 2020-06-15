@@ -51,6 +51,20 @@ We denote $h(t_{i}) = h_{t_{i}}$, Euler's method is rewritten as:
 
 $$ h_{t_{i+1}} = h_{t_{i}} + f(t_i, h_{t_{i}}) \Delta t$$
 
+#### Euler's Method from a Riemman Sum
+
+From the [fundamental theorem of calculus](https://en.wikipedia.org/wiki/Fundamental_theorem_of_calculus#Second_part): 
+
+$$ h(t_{i+1}) - h(t_i) = \int_{t_{i+1}}^{t_i} f(t, h(t)) dt$$
+
+The right hand integral can be approximated using left-hand Riemman sum:
+
+$$ \int_{t_{i+1}}^{t_i} f(t, h(t)) dt \approx f(t_i,h) \Delta t $$
+
+
+$$ h(t_{i+1}) = h(t_i) + \int_{t_{i+1}}^{t_i} f(t, h(t)) dt$$
+
+$$ h(t_{i+1}) = h(t_i) +  f(t_i,h(t_i)) \Delta t $$
 
 ### Taylor Methods
 
@@ -107,11 +121,11 @@ If $F(h_\ell, \theta_\ell) = \Delta t f(h_\ell, \theta_\ell)$, where $\Delta t >
 
 $$h_{\ell+1} = h_\ell + \Delta t f(h_\ell, \theta_\ell)$$ 
 
-Here the index $\ell$ indicates the $\ell^{\text{th}}$ layer in the ResNet network and $\Delta t$ is step size. In the limit of adding more layers and taking a smaller size,
+Here the index $\ell$ indicates the $\ell^{\text{th}}$ layer in the ResNet network and $\Delta t > 0$ is the step size. In the limit of adding more layers and taking a smaller size,
 
 $$ \frac{d}{dt} h(t) = f(t, h(t),\theta) $$
 
-The initial condition condition $h(0)=h_0$ is the input layer and the output layer is the value at $h(T) = h_T$
+The initial condition condition $h(0)=h_0$ is the input layer and the output layer is the value at $h(T) = h_T$ <a href="#ref_4">[4]</a>. The output value $h(T)$ can be evaluated using a blackbox differential equation to a desired accuracy.
 
 
 
@@ -122,4 +136,6 @@ The initial condition condition $h(0)=h_0$ is the input layer and the output lay
 <a id="ref_2"></a>
 2. [He, Kaiming, et al. "Deep residual learning for image recognition." Proceedings of the IEEE conference on computer vision and pattern recognition. 2016.](https://arxiv.org/abs/1512.03385)
 <a id="ref_3"></a>
-3. Bradie, B. (2006). A friendly introduction to numerical analysis. Upper Saddle River, NJ: Pearson Prentice Hall. 
+3. Bradie, B. (2006). A friendly introduction to numerical analysis. Upper Saddle River, NJ: Pearson Prentice Hall.
+<a id="ref_4"></a>
+4. [Chang, Bo, et al. "Multi-level residual networks from dynamical systems view." arXiv preprint arXiv:1710.10348 (2017).](https://arxiv.org/abs/1710.10348) 
