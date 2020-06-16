@@ -4,13 +4,13 @@
 
 ## Ordinary Differential Equations (ODEs)
 
-Solving an ODE consists finding $h(t)$ that satisfies:
+Solving an ODE consists finding of the $h(t)$ that satisfies:
 
 $$ \frac{d}{dt}h(t) = f(t, h(t)) \quad 0 \leq t \leq T$$
 
 $$ h(0) = h_0 $$
 
-where $h_0$ is the initial condition. General ODEs are often impossible to solve for generic $f$, and they generally require numerical methods in provide a solution. 
+where $h_0$ is the initial condition. General ODEs are often impossible to solve for generic $f$, and they generally require numerical methods in order to provide a solution. 
 
 ## Numerical Solutions to ODEs
 
@@ -128,19 +128,17 @@ $$ \frac{d}{dt} h(t) = f(t, h(t),\theta) $$
 The initial condition condition $h(0)=h_0$ is the input layer and the output layer is the value at $h(T) = h_T$ <a href="#ref_4">[4]</a>. In this sense, the network can be seen as having continuous depth. The output value $h(T)$ can be evaluated using a blackbox differential equation to a desired accuracy. 
 
 
-### Backpropagation of ODE Solutions
+### Backpropagating Through ODE Solutions
 
 In order to train a continuous-depth network, one needs to backpropagated through an ODE solver. Unrolling the solver and backpropagating through the operations incurs a high memory cost and an additional numerical error. Instead the approach presented in <a href="#ref_1">[1]</a> treats the ODE solver as a blackbox and computes the gradient using a method called adjoint sensitivity method. 
-
-#### Problem Setup
 
 Consider minimizing the following loss function $\mathcal{L}$:
 
 $$\mathcal{L}(z(t_{i+1})) = \mathcal{L}\bigg(z(t_i) + \int_{t_i}^{t_{i+1}} f(z(t),t,\theta) dt \bigg)  = \mathcal{L}(\text{ODESolve}(z(t_i),f,t_i,t_{i+1},\theta))$$
 
-where $z(t)$ is a hidden state function. 
+where $z(t)$ is a hidden state function and the hidden state function follows $\frac{d}{dt} z(t) = f(z(t), t, \theta)$ where $\theta$ are the parameters. Evaluating the gradient $\frac{\partial \mathcal{L}}{\partial z(t)}$ is necessary in order to compute the gradient of $\mathcal{L}$ with respect to the parameters $\theta$. The gradient $\frac{\partial \mathcal{L}}{\partial z(t)}$ is called the adjoint state $a(t)$. The dynamics of the adjoint are given by the following ODE:
 
-
+$$\frac{d}{dt} a(t) = -a(t)^\text{T} \frac{\partial f(z(t), t, \theta)}{\partial z(t)}$$ 
 
 # References:
 
