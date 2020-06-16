@@ -10,7 +10,7 @@ $$ \frac{d}{dt}h(t) = f(t, h(t)) \quad 0 \leq t \leq T$$
 
 $$ h(0) = h_0 $$
 
-where $h_0$ is the initial condition. General ODEs are often impossible to solve for generic $f$. Generic ODEs require numerical methods in provide a solution. 
+where $h_0$ is the initial condition. General ODEs are often impossible to solve for generic $f$, and they generally require numerical methods in provide a solution. 
 
 ## Numerical Solutions to ODEs
 
@@ -125,7 +125,20 @@ Here the index $\ell$ indicates the $\ell^{\text{th}}$ layer in the ResNet netwo
 
 $$ \frac{d}{dt} h(t) = f(t, h(t),\theta) $$
 
-The initial condition condition $h(0)=h_0$ is the input layer and the output layer is the value at $h(T) = h_T$ <a href="#ref_4">[4]</a>. The output value $h(T)$ can be evaluated using a blackbox differential equation to a desired accuracy.
+The initial condition condition $h(0)=h_0$ is the input layer and the output layer is the value at $h(T) = h_T$ <a href="#ref_4">[4]</a>. In this sense, the network can be seen as having continuous depth. The output value $h(T)$ can be evaluated using a blackbox differential equation to a desired accuracy. 
+
+
+### Backpropagation of ODE Solutions
+
+In order to train a continuous-depth network, one needs to backpropagated through an ODE solver. Unrolling the solver and backpropagating through the operations incurs a high memory cost and an additional numerical error. Instead the approach presented in <a href="#ref_1">[1]</a> treats the ODE solver as a blackbox and computes the gradient using a method called adjoint sensitivity method. 
+
+#### Problem Setup
+
+Consider minimizing the following loss function $\mathcal{L}$:
+
+$$\mathcal{L}(z(t_{i+1})) = \mathcal{L}\bigg(z(t_i) + \int_{t_i}^{t_{i+1}} f(z(t),t,\theta) dt \bigg)  = \mathcal{L}(\text{ODESolve}(z(t_i),f,t_i,t_{i+1},\theta))$$
+
+where $z(t)$ is a hidden state function. 
 
 
 
