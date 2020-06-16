@@ -6,4 +6,5 @@
 
 <p style="text-align: center;">Hi! My name is Diego.</p>
 
+My CV: <a href="images/cv.pdf">click here</a>.
 What I'm reading: <a href="https://www.goodreads.com/review/list/116671508?shelf=currently-reading">click here</a>.
