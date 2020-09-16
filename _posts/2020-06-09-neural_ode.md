@@ -136,9 +136,25 @@ Consider minimizing the following loss function $\mathcal{L}$:
 
 $$\mathcal{L}(z(t_{i+1})) = \mathcal{L}\bigg(z(t_i) + \int_{t_i}^{t_{i+1}} f(z(t),t,\theta) dt \bigg)  = \mathcal{L}(\text{ODESolve}(z(t_i),f,t_i,t_{i+1},\theta))$$
 
-where $z(t)$ is a hidden state function and the hidden state function follows $\frac{d}{dt} z(t) = f(z(t), t, \theta)$ where $\theta$ are the parameters. Evaluating the gradient $\frac{\partial \mathcal{L}}{\partial z(t)}$ is necessary in order to compute the gradient of $\mathcal{L}$ with respect to the parameters $\theta$. The gradient $\frac{\partial \mathcal{L}}{\partial z(t)}$ is called the adjoint state $a(t)$. The dynamics of the adjoint are given by the following ODE:
+where $z(t)$ is a hidden state function follows $\frac{d}{dt} z(t) = f(z(t), t, \theta)$ where $\theta$ are the parameters. Evaluating the gradient $\frac{\partial \mathcal{L}}{\partial z(t)}$ is necessary in order to compute the gradient of $\mathcal{L}$ with respect to the parameters $\theta$. The gradient $\frac{\partial \mathcal{L}}{\partial z(t)}$ is called the adjoint state $a(t)$. The dynamics of the adjoint are given by the following ODE:
 
-$$\frac{d}{dt} a(t) = -a(t)^\text{T} \frac{\partial f(z(t), t, \theta)}{\partial z(t)}$$ 
+$$\frac{d}{dt} a(t) = -a(t)^\text{T} \frac{\partial f(z(t), t, \theta)}{\partial z(t)}$$
+
+In order to compute $\partial \mathcal{L} /\partial \mathbf{z}(t_0)$, the value of $a(t_0)$ needs to be determined which is the solution the following: 
+
+$$ a(t_0) = a(t_1) + \int_{t_1}^{t_0} -a(t)^\text{T} \frac{\partial f(z(t), t, \theta)}{\partial z(t)} dt$$
+
+where $a(t_1) = \partial \mathcal{L} /\partial \mathbf{z}(t_1)$. Therefore, the ODE solver needs to run backwards with $\partial \mathcal{L} /\partial \mathbf{z}(t_1)$ as the initial condition. In order to solve for $a(t)$, the ODE solver needs access to $z(t)$, and another observation is that the values of $\frac{\partial \mathcal{L}}{\partial z(t)}$ need to be computed in a backwards manner similar to backpropagation. Also, the $\frac{\partial \mathcal{L}}{\partial z(t_N)}$ is simply the gradient of cost function computed with respect to the last time step and serves as the initial condition for the whole backwards computation.
+
+#### Proof of $\frac{d}{dt} a(t) = -a(t)^\text{T} \frac{\partial f(z(t), t, \theta)}{\partial z(t)}$
+
+If we treat $z(t)$ as hidden layers in a neural network. $z(t+\varepsilon)$ is the next hidden layer in the network. $z(t+\varepsilon)$ and $z(t)$ are related by the following relationship:
+
+$$z(t+\varepsilon) = z(t) + \int_{t}^{t+1} f(z(t), t, \theta) dt = T_{\varepsilon}(z(t), t)$$
+
+By chain rule, the gradient between the two layers by the following:
+
+$$ \frac{\partial \mathcal{L}}{\partial z(t)} = \frac{\partial \mathcal{L}}{\partial z(t+\varepsilon)} \frac{\partial z(t+\varepsilon)}{\partial z(t)} $$
 
 # References:
 
