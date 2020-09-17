@@ -22,7 +22,7 @@
 
         .gr_grid_book_container {
           /* customize book cover container div here */
-          float: center;
+          float: left;
           width: 80px;
           height: 130px;
           padding: 0px 0px;
@@ -51,7 +51,7 @@
 
         .gr_grid_book_container {
           /* customize book cover container div here */
-          float: center;
+          float: left;
           width: 80px;
           height: 130px;
           padding: 0px 0px;
