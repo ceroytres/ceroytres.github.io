@@ -148,13 +148,46 @@ where $a(t_1) = \partial \mathcal{L} /\partial \mathbf{z}(t_1)$. Therefore, the 
 
 #### Proof of $\frac{d}{dt} a(t) = -a(t)^\text{T} \frac{\partial f(z(t), t, \theta)}{\partial z(t)}$
 
+For simplicity, we assume $z$ and $f$ are scalar functions.
+
 If we treat $z(t)$ as hidden layers in a neural network. $z(t+\varepsilon)$ is the next hidden layer in the network. $z(t+\varepsilon)$ and $z(t)$ are related by the following relationship:
 
 $$z(t+\varepsilon) = z(t) + \int_{t}^{t+1} f(z(t), t, \theta) dt = T_{\varepsilon}(z(t), t)$$
 
+Similarly, $T_{\varepsilon}(z(t), t)$ can be approximated using a Taylor series at $t$:
+
+$$z(t+\varepsilon) = z(t) + f(z(t), t, \theta) \varepsilon + \frac{1}{2} \frac{d}{dt}f(z(t), t, \theta)\big|_{t = \xi \in [t, t+\varepsilon]} \varepsilon^2$$
+
+$$z(t+\varepsilon) = z(t) + f(z(t), t, \theta) \varepsilon + O(\varepsilon^2)$$
+
 By chain rule, the gradient between the two layers by the following:
 
 $$ \frac{\partial \mathcal{L}}{\partial z(t)} = \frac{\partial \mathcal{L}}{\partial z(t+\varepsilon)} \frac{\partial z(t+\varepsilon)}{\partial z(t)} $$
+
+
+Using $a(t) = \partial \mathcal{L} / \partial z(t)$
+
+$$ a(t)  =  a(t+\varepsilon) \frac{\partial T_\varepsilon(z(t), t)}{\partial z(t)}$$
+
+Using the definition of the derivative:
+
+$$ \frac{d a(t)}{dt} = \text{lim}_{\varepsilon \rightarrow 0} \frac{a(t+\varepsilon) - a(t)}{\varepsilon} $$
+
+$$  \text{lim}_{\varepsilon \rightarrow 0} \frac{a(t+\varepsilon) - a(t+\varepsilon)\frac{\partial }{\partial z(t)}\left( z(t) + \varepsilon f(z(t), t, \theta) + O(\varepsilon^2) \right)}{\varepsilon} $$
+
+$$  \text{lim}_{\varepsilon \rightarrow 0} -a(t+\varepsilon)\frac{\partial}{\partial z(t)}f(z(t), t, \theta) + O(\varepsilon)$$
+
+$$ =-a(t)\frac{\partial}{\partial z(t)}f(z(t), t, \theta) $$
+
+To compute $\frac{\partial}{\partial \theta} \mathcal{L}$, the following integral need to be evaluated:
+
+$$ \frac{\partial}{\partial \theta} \mathcal{L} = - \int_{t_1}^{t_0} a(t)^T \frac{\partial f(z(t), t, \theta)}{\partial \theta} dt $$
+
+$a(t)$ and $z(t)$ need to be computed before $\frac{\partial}{\partial \theta} \mathcal{L}$ can be computed. $a(t)$ and $\frac{\partial}{\partial \theta} \mathcal{L}$ can be evaluted using an ODE solver on an augumented ODE.
+
+#### Building the Augumented ODE
+
+$$\frac{d}{dt} \begin{bmatrix} z \\ \theta \\ t \end{bmatrix} = \begin{bmatrix} f(z(t), t, \theta) \\ 0 \\ 1 \end{bmatrix}$$
 
 # References:
 
