@@ -110,7 +110,7 @@ The underlying assumption of residual learning is that it is simpler to learn th
 
 <figure>
 <img src="{{site.baseurl}}/images/post_im/neural_ode/resnet.png">
-  <figcaption>ResNet Basic Building Block Diagram from <a href="#ref_1">[1]</a></figcaption>
+  <figcaption>ResNet Basic Building Block Diagram from <a href="#ref_2">[2]</a></figcaption>
 </figure>
 
 The residual mapping echoes Euler's method. If we set $h_\ell = x$, $F(h_\ell,\theta_\ell) = \mathcal{F}(x, \theta)$, and $h_{\ell+1} = \mathcal{H}(x, \theta)$:
@@ -186,8 +186,39 @@ $$ \frac{\partial}{\partial \theta} \mathcal{L} = - \int_{t_1}^{t_0} a(t)^T \fra
 $a(t)$ and $z(t)$ need to be computed before $\frac{\partial}{\partial \theta} \mathcal{L}$ can be computed. $a(t)$ and $\frac{\partial}{\partial \theta} \mathcal{L}$ can be evaluted using an ODE solver on an augumented ODE.
 
 #### Building the Augumented ODE
+Since $\frac{\partial}{\partial t}\theta(t) = \mathbf{0}$ and $\frac{d}{dt} t(t) = 1$
 
-$$\frac{d}{dt} \begin{bmatrix} z \\ \theta \\ t \end{bmatrix} = \begin{bmatrix} f(z(t), t, \theta) \\ 0 \\ 1 \end{bmatrix}$$
+$$\frac{d}{dt} \begin{bmatrix} z \\ \theta \\ t \end{bmatrix} = \begin{bmatrix} f(z(t), t, \theta) \\ 0 \\ 1 \end{bmatrix} = f_{\text{aug}}(z, \theta, t)$$
+
+$$a_{\text{aug}} = \begin{bmatrix} a_z \\ a_\theta \\ a_t \end{bmatrix} \text { where } a_{\theta}(t) = \frac{dL}{d\theta(t)}, a_t(t) = \frac{dL}{dt(t)} $$
+
+The Jacobian $f_{\text{aug}}(z, \theta, t)$ w.r.t to $z, t, \theta$ is
+
+$$\frac{\partial}{\partial [z, t, \theta]}  f_{\text{aug}}(z, \theta, t) = \begin{bmatrix} \frac{\partial}{\partial z}f & \frac{\partial}{\partial t}f & \frac{\partial}{\partial \theta} f \\ 0 & 0 & 0\\ 0 & 0 & 0  \end{bmatrix}$$
+
+$$ \frac{d}{dt} a_\text{aug}(t) = -\begin{bmatrix} a(t)^T  & a_\theta(t)^T &  a_t(t)^T\end{bmatrix} \frac{\partial}{\partial [z, t, \theta]}  f_{\text{aug}}(z, \theta, t) = -\begin{bmatrix} a(t)^T  \frac{\partial}{\partial z}f & a(t)^T  \frac{\partial}{\partial \theta}f & a(t)^T  \frac{\partial}{\partial t}f \end{bmatrix}$$
+
+From the equation above and setting $a_\theta(t_N) = 0$, 
+
+$$a_\theta(t_0) = -\int_{t_N}^{t_0} a(t)^T \frac{\partial}{\partial \theta} f(z(t), \theta, t) dt $$
+
+The gradients w.r.t $t_0$ and $t_N$ are given by 
+
+$$a_t(t_N) = \frac{\partial \mathcal{L}}{dt_N} = a(t_N) f(z(t_N), t_N ,\theta) = \frac{\partial \mathcal{L}}{\partial z(t_N)} f(z(t_N), t_N ,\theta)$$ 
+
+
+$$a_t(t_0) = \frac{\partial \mathcal{L}}{dt_0} = a_t(t_N) -\int_{t_N}^{t_0} a(t)^T \frac{\partial}{\partial \theta} f(z(t), \theta, t) dt $$
+
+Note how the gradient for $t_N$ needs to be computed before $t_0$, and $t_0$ is solved in a "backwards" manner.
+
+The overall algorithm for backprop through the ODE solution is given by
+
+<figure>
+<img src="{{site.baseurl}}/images/post_im/neural_ode/algo.png">
+  <figcaption> Steps for Backproping through ODE solver <a href="#ref_1">[1]</a></figcaption>
+</figure>
+
+
 
 # References:
 
