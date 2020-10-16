@@ -1,6 +1,5 @@
 # Neural Ordinary Differential Equations
 
-# __**Under Construction**__
 
 ## Ordinary Differential Equations (ODEs)
 
@@ -217,6 +216,9 @@ The overall algorithm for backprop through the ODE solution is given by
 <img src="{{site.baseurl}}/images/post_im/neural_ode/algo.png">
   <figcaption> Steps for Backproping through ODE solver <a href="#ref_1">[1]</a></figcaption>
 </figure>
+
+[TorchDiffEq](https://github.com/rtqichen/torchdiffeq) and [torchdyn](https://github.com/DiffEqML/torchdyn) both implement various neural ODE algorithms.
+
 
 
 
