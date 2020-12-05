@@ -3,7 +3,7 @@
 <img src="images/me.jpg" style="width:256px;height:256px;">
 
 
-<p style="text-align: center;">Hi! My name is Diego. I'm a cat and dog parent</p>
+<p style="text-align: center;">Hi! My name is Diego. I'm a cat and dog parent.</p>
 
 
 
