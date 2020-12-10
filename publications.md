@@ -1,4 +1,4 @@
-# Publications
+# Publications & CV
 
 
 <style>
@@ -9,7 +9,7 @@ a:link {
 }
 </style>
 
-### Publications:
+## Publications:
 
 ##### 2020
 
@@ -28,3 +28,7 @@ a:link {
 
 * <sub> [Josh Harguess, Scott Shafer, and Diego Marez "The role of optical flow in automated quality assessment of full-motion video", Proc. SPIE 10396, Applications of Digital Image Processing XL, 1039606 (19 September 2017);](https://doi.org/10.1117/12.2275392) </sub>
 
+
+## CV
+
+<iframe src="/images/cv.pdf" width="100%" height="1000px"></iframe>
