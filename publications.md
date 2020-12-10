@@ -1,4 +1,4 @@
-# Publications & CV
+# Publications and CV
 
 
 <style>
