@@ -5,10 +5,54 @@
 
 <p style="text-align: center;">Hi! My name is Diego. I'm a cat and dog parent.</p>
 
+## Pets
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33%;
+  height: 33;
+  padding: 0px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+<div class="row">
+  <div class="column">
+    <img src="images/dog.jpeg" style="width:256px;height:350px;"> 
+  </div>
+  <div class="column">
+    <img src="images/cat.jpeg" style="width:256px;height:350px;">
+  </div>
+  <div class="column">
+    <img src="images/cat2.jpeg" style="width:256px;height:350px;">
+  </div>
+</div>
+<div class="row">
+  <div class="column">
+    <p style="text-align: center;">Buddy</p>
+  </div>
+  <div class="column">
+    <p style="text-align: center;">Frida</p>
+  </div>
+  <div class="column">
+    <p style="text-align: center;">Archibald</p>
+  </div>
+</div>
 
 
-## Reading
 
+## What I'm Reading
 
 <table style="text-align:center; background-color: #ffffff;">
   <tr>
@@ -76,3 +120,5 @@
     </th>
   </tr>
 </table>
+
+
