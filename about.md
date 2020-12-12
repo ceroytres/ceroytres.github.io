@@ -14,7 +14,7 @@
 
 .column {
   float: left;
-  width: 33%;
+  width: 33.2%;
   height: 33;
   padding: 0px;
 }
@@ -61,31 +61,35 @@
   </tr>
   <tr>
     <th>
-<style type="text/css" media="screen">
+      <style type="text/css" media="screen">
         .gr_grid_container {
           /* customize grid container div here. eg: width: 500px; */
+          width 160px;
+          height 325px;
         }
 
         .gr_grid_book_container {
           /* customize book cover container div here */
           float: left;
-          width: 80px;
-          height: 130px;
+          width: 98px;
+          height: 160px;
           padding: 0px 0px;
           overflow: hidden;
         }
-</style>
-<div id="gr_grid_widget_1600324707">
+      </style>
+      <div id="gr_grid_widget_1607810927">
         <!-- Show static html as a placeholder in case js is not enabled - javascript include will override this if things work -->
-<div class="gr_grid_container">
-    <div class="gr_grid_book_container"><a title="Gaussian Processes for Machine Learning" rel="nofollow" href="https://www.goodreads.com/book/show/148010.Gaussian_Processes_for_Machine_Learning"><img alt="Gaussian Processes for Machine Learning" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1347745744l/148010._SX98_.jpg" /></a></div>
+          <div class="gr_grid_container">
     <div class="gr_grid_book_container"><a title="The Handmaid's Tale (The Handmaid's Tale, #1)" rel="nofollow" href="https://www.goodreads.com/book/show/38447.The_Handmaid_s_Tale"><img alt="The Handmaid's Tale" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1578028274l/38447._SX98_.jpg" /></a></div>
-    <div class="gr_grid_book_container"><a title="The New Jim Crow: Mass Incarceration in the Age of Colorblindness" rel="nofollow" href="https://www.goodreads.com/book/show/51631319-the-new-jim-crow"><img alt="The New Jim Crow: Mass Incarceration in the Age of Colorblindness" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1574751065l/51631319._SX98_SY160_.jpg" /></a></div>
+    <div class="gr_grid_book_container"><a title="Snow Crash" rel="nofollow" href="https://www.goodreads.com/book/show/830.Snow_Crash"><img alt="Snow Crash" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1601222163l/830._SX98_.jpg" /></a></div>
+    <div class="gr_grid_book_container"><a title="Learning with Submodular Functions: A Convex Optimization Perspective" rel="nofollow" href="https://www.goodreads.com/book/show/19138538-learning-with-submodular-functions"><img alt="Learning with Submodular Functions: A Convex Optimization Perspective" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1390172604l/19138538._SX98_.jpg" /></a></div>
+    <div class="gr_grid_book_container"><a title="Lectures on Convex Optimization (Springer Optimization and Its Applications)" rel="nofollow" href="https://www.goodreads.com/book/show/40765879-lectures-on-convex-optimization"><img alt="Lectures on Convex Optimization" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1544155421l/40765879._SX98_.jpg" /></a></div>
+    <div class="gr_grid_book_container"><a title="Eloquent JavaScript: A Modern Introduction to Programming" rel="nofollow" href="https://www.goodreads.com/book/show/8910666-eloquent-javascript"><img alt="Eloquent JavaScript: A Modern Introduction to Programming" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1308260856l/8910666._SX98_.jpg" /></a></div>
   <noscript><br/>Share <a rel="nofollow" href="/">book reviews</a> and ratings with Diego, and even join a <a rel="nofollow" href="/group">book club</a> on Goodreads.</noscript>
   </div>
 
-</div>
-      <script src="https://www.goodreads.com/review/grid_widget/116671508.Diego's%20currently-reading%20book%20montage?cover_size=medium&hide_link=true&hide_title=true&num_books=20&order=a&shelf=currently-reading&sort=date_added&widget_id=1600324707" type="text/javascript" charset="utf-8"></script>
+      </div>
+      <script src="https://www.goodreads.com/review/grid_widget/116671508.Diego's%20currently-reading%20book%20montage?cover_size=medium&hide_link=true&hide_title=true&num_books=20&order=a&shelf=currently-reading&sort=date_added&widget_id=1607810927" type="text/javascript" charset="utf-8"></script>
 
 
     </th>
