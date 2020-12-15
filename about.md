@@ -1,6 +1,10 @@
 # About Me
 
-<img src="images/me.jpg" style="width:256px;height:256px;">
+
+
+
+<img src="images/me.jpg" style="border-radius: 50%; width: 256px" alt="Diego">
+
 
 
 <p style="text-align: center;">Hi! My name is Diego. I'm a cat and dog parent.</p>
@@ -29,13 +33,13 @@
 
 <div class="row">
   <div class="column">
-    <img src="images/dog.jpeg" style="width:256px;height:350px;"> 
+    <img src="images/dog.jpeg" style="width:180px;height:256px;border-radius: 50%;"> 
   </div>
   <div class="column">
-    <img src="images/cat.jpeg" style="width:256px;height:350px;">
+    <img src="images/cat.jpeg" style="width:180px;height:256px;border-radius: 50%;">
   </div>
   <div class="column">
-    <img src="images/cat2.jpeg" style="width:256px;height:350px;">
+    <img src="images/cat2.jpeg" style="width:180px;height:256px;border-radius: 50%;">
   </div>
 </div>
 <div class="row">
