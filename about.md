@@ -9,6 +9,7 @@
 
 <p style="text-align: center;">Hi! My name is Diego. I'm a cat and dog parent.</p>
 
+
 ## Pets
 
 <style>
