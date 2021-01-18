@@ -7,7 +7,7 @@
 
 
 
-<p style="text-align: center;">Hi! My name is Diego. I'm a cat and dog parent.</p>
+<p style="text-align: center;">Hi! My name is Diego. I'm a 🐈 🐈 🐕 and 🌱 parent. </p>
 
 
 ## Pets
