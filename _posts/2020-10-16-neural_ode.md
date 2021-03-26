@@ -199,7 +199,7 @@ $$ \frac{d}{dt} a_\text{aug}(t) = -\begin{bmatrix} a(t)^T  & a_\theta(t)^T &  a_
 
 From the equation above and setting $a_\theta(t_N) = 0$, 
 
-$$a_\theta(t_0) = -\int_{t_N}^{t_0} a(t)^T \frac{\partial}{\partial \theta} f(z(t), \theta, t) dt $$
+$$a_\theta(t_0) = \frac{\partial}{\partial \theta} \mathcal{L} = -\int_{t_N}^{t_0} a(t)^T \frac{\partial}{\partial \theta} f(z(t), \theta, t) dt $$
 
 The gradients w.r.t $t_0$ and $t_N$ are given by 
 
