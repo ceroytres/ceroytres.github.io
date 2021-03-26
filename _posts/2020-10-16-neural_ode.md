@@ -139,11 +139,11 @@ where $z(t)$ is a hidden state function follows $\frac{d}{dt} z(t) = f(z(t), t, 
 
 $$\frac{d}{dt} a(t) = -a(t)^\text{T} \frac{\partial f(z(t), t, \theta)}{\partial z(t)}$$
 
-In order to compute $\partial \mathcal{L} /\partial \mathbf{z}(t_0)$, the value of $a(t_0)$ needs to be determined which is the solution the following: 
+In order to compute $\partial \mathcal{L} /\partial \mathbf{z}(t_0)$, the value of $a(t_0)$ needs to be determined which is the solution to the following ODE: 
 
 $$ a(t_0) = a(t_1) + \int_{t_1}^{t_0} -a(t)^\text{T} \frac{\partial f(z(t), t, \theta)}{\partial z(t)} dt$$
 
-where $a(t_1) = \partial \mathcal{L} /\partial \mathbf{z}(t_1)$. Therefore, the ODE solver needs to run backwards with $\partial \mathcal{L} /\partial \mathbf{z}(t_1)$ as the initial condition. In order to solve for $a(t)$, the ODE solver needs access to $z(t)$, and another observation is that the values of $\frac{\partial \mathcal{L}}{\partial z(t)}$ need to be computed in a backwards manner similar to backpropagation. Also, the $\frac{\partial \mathcal{L}}{\partial z(t_N)}$ is simply the gradient of cost function computed with respect to the last time step and serves as the initial condition for the whole backwards computation.
+where $a(t_1) = \partial \mathcal{L} /\partial \mathbf{z}(t_1)$. Therefore, the ODE solver needs to run backwards with $\partial \mathcal{L} /\partial \mathbf{z}(t_1)$ as the initial condition. In order to solve for $a(t)$, the ODE solver needs access to $z(t)$, and another observation is that the values of $\frac{\partial \mathcal{L}}{\partial z(t)}$ need to be computed in a backwards manner similar to backpropagation. Also, the $\frac{\partial \mathcal{L}}{\partial z(t_N)}$ is simply the gradient of cost function computed with respect to the last time step, and it serves as the initial condition for the whole backwards computation.
 
 #### Proof of $\frac{d}{dt} a(t) = -a(t)^\text{T} \frac{\partial f(z(t), t, \theta)}{\partial z(t)}$
 
@@ -151,7 +151,7 @@ For simplicity, we assume $z$ and $f$ are scalar functions.
 
 If we treat $z(t)$ as hidden layers in a neural network. $z(t+\varepsilon)$ is the next hidden layer in the network. $z(t+\varepsilon)$ and $z(t)$ are related by the following relationship:
 
-$$z(t+\varepsilon) = z(t) + \int_{t}^{t+1} f(z(t), t, \theta) dt = T_{\varepsilon}(z(t), t)$$
+$$z(t+\varepsilon) = z(t) + \int_{t}^{t+\varepsilon} f(z(t), t, \theta) dt = T_{\varepsilon}(z(t), t)$$
 
 Similarly, $T_{\varepsilon}(z(t), t)$ can be approximated using a Taylor series at $t$:
 
