@@ -189,7 +189,7 @@ Since $\frac{\partial}{\partial t}\theta(t) = \mathbf{0}$ and $\frac{d}{dt} t(t)
 
 $$\frac{d}{dt} \begin{bmatrix} z \\ \theta \\ t \end{bmatrix} = \begin{bmatrix} f(z(t), t, \theta) \\ 0 \\ 1 \end{bmatrix} = f_{\text{aug}}(z, \theta, t)$$
 
-$$a_{\text{aug}} = \begin{bmatrix} a \\ a_\theta \\ a_t \end{bmatrix} \text { where } a_{\theta}(t) = \frac{dL}{d\theta(t)}, a_t(t) = \frac{dL}{dt(t)} $$
+$$a_{\text{aug}} = \begin{bmatrix} a \\ a_\theta \\ a_t \end{bmatrix} \text { where } a_{\theta}(t) = \frac{dL}{d\theta(t)}, a_t(t) = \frac{dL}{dt(t)}, a(t) =  \frac{\partial \mathcal{L}}{\partial z(t)} $$
 
 The Jacobian $f_{\text{aug}}(z, \theta, t)$ w.r.t to $z, t, \theta$ is
 
