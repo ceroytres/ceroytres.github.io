@@ -94,7 +94,7 @@
   </div>
 
       </div>
-      <script src="https://www.goodreads.com/review/grid_widget/116671508.Diego's%20currently-reading%20book%20montage?cover_size=small&hide_link=true&hide_title=true&num_books=20&order=a&shelf=currently-reading&sort=date_added&widget_id=1607810927" type="text/javascript" charset="utf-8"></script>
+      <script src="https://www.goodreads.com/review/grid_widget/116671508.Diego's%20currently-reading%20book%20montage?cover_size=small&hide_link=true&hide_title=true&num_books=20&order=a&shelf=currently-reading&sort=date_updated&widget_id=1607810927" type="text/javascript" charset="utf-8"></script>
 
 
     </th>
@@ -124,7 +124,7 @@
   </div>
 
 </div>
-      <script src="https://www.goodreads.com/review/grid_widget/116671508.Diego's%20read%20book%20montage?cover_size=small&hide_link=true&hide_title=true&num_books=30&order=d&shelf=read&sort=date_added&widget_id=1600324406" type="text/javascript" charset="utf-8"></script>
+      <script src="https://www.goodreads.com/review/grid_widget/116671508.Diego's%20read%20book%20montage?cover_size=small&hide_link=true&hide_title=true&num_books=30&order=d&shelf=read&sort=date_updated&widget_id=1600324406" type="text/javascript" charset="utf-8"></script>
 
     </th>
   </tr>
