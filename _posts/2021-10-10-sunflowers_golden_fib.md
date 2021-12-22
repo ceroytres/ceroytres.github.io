@@ -23,9 +23,7 @@ def fib(n):
         return fib(n-1) + fib(n-2)
 ```
 
-
-The Fibonacci Sequence is related to the concept of difference equations and recurrence relations.  
-
+The Fiba
 
 ## Golden Ratio
 The golden ratio is defined to be the following value:
@@ -34,13 +32,21 @@ $$ \varphi = \frac{1 + \sqrt{5}}{2} \approx 1.618033 $$
 
 and it is inverse:
 
-$$ \psi = \varphi^{-1} \approx 0.6180339$$
+$$ \psi = -\varphi^{-1} \approx 0.6180339$$
 
 ## $z$-transforms and Difference Equations
 
-f[n] = f[n-1] + f[n-2] + x[n]
+The Fibonacci Sequence is related to the concept of difference equations and recurrence relations. 
+
+$$f[n] = f[n-1] + f[n-2] + x[n]$$
 
 *Proof*:
 <details>
-The $z$-transform of the difference equation 
+The $z$-transform of the difference equation:
+
+$$ \frac{F(z)}{X(z)}  = \frac{1}{(1 - z^{-1} - z^{-2})} $$
+
+$( z^{-2} + z^{-2} - 1) = (z^{-1} + \varphi)(z^{-1} + \psi)$$
+
+
 </details>
