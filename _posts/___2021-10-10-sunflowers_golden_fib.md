@@ -32,21 +32,17 @@ $$ \varphi = \frac{1 + \sqrt{5}}{2} \approx 1.618033 $$
 
 and it is inverse:
 
-$$ \psi = -\varphi^{-1} \approx 0.6180339$$
+$$ \psi = -\varphi^{-1} = - \approx 0.6180339$$
 
-## $z$-transforms and Difference Equations
+## $z$-transforms and Recurrence Relations
 
-The Fibonacci Sequence is related to the concept of difference equations and recurrence relations. 
+The Fibonacci Sequence is related to the concept of recurrence relations. 
 
-$$f[n] = f[n-1] + f[n-2] + x[n]$$
+$$f_n = f_{n-1} + f_{n-2}$$
 
 *Proof*:
 <details>
-The $z$-transform of the difference equation:
 
-$$ \frac{F(z)}{X(z)}  = \frac{1}{(1 - z^{-1} - z^{-2})} $$
-
-$( z^{-2} + z^{-2} - 1) = (z^{-1} + \varphi)(z^{-1} + \psi)$
 
 
 </details>
