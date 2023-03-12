@@ -23,7 +23,7 @@ def fib(n):
         return fib(n-1) + fib(n-2)
 ```
 
-The Fiba
+The Fibonacci Sequence can be expressed in closed-form 
 
 ## Golden Ratio
 The golden ratio is defined to be the following value:
@@ -46,7 +46,7 @@ The $z$-transform of the difference equation:
 
 $$ \frac{F(z)}{X(z)}  = \frac{1}{(1 - z^{-1} - z^{-2})} $$
 
-$( z^{-2} + z^{-2} - 1) = (z^{-1} + \varphi)(z^{-1} + \psi)$$
+$( z^{-2} + z^{-2} - 1) = (z^{-1} + \varphi)(z^{-1} + \psi)$
 
 
 </details>

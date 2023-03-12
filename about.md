@@ -62,7 +62,7 @@
 <table style="text-align:center; background-color: #ffffff;">
   <tr>
     <th>Reading</th>
-    <th>Read (Last 10 books)</th> 
+    <th>Read (Last 12 books)</th> 
   </tr>
   <tr>
     <th>
