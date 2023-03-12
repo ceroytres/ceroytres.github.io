@@ -13,6 +13,27 @@
 ## Pets
 
 <style>
+table {
+    border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px;
+    background: none;
+}
+
+td, th {
+    border-left:solid black 1px;
+    border-top:solid black 1px;
+}
+
+th {
+    background-color: blue;
+    border-top: none;
+}
+
+td:first-child, th:first-child {
+     border-left: none;
+}
+
 * {
   box-sizing: border-box;
 }
